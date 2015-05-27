@@ -1,13 +1,22 @@
 function drawBuffer( width, height, context, data ) {
+    console.log('length of recording:')
+    console.log(data.length)
     var step = Math.ceil( data.length / width );
+    var high = 0;
+    for (var db in data){
+        if (data[db] > 0.2) { high+=1};
+    };
+    console.log('number of hits above 0.2 level:')
+    console.log(high)
+
     var amp = height / 2;
-    context.fillStyle = "silver";
+    context.fillStyle = "white";
     context.clearRect(0,0,width,height);
-    for(var i=0; i < width; i++){
+    for(var i=0; i < width; i++){ 
         var min = 1.0;
         var max = -1.0;
         for (j=0; j<step; j++) {
-            var datum = data[(i*step)+j]; 
+            var datum = data[(i*step)+j];
             if (datum < min)
                 min = datum;
             if (datum > max)
