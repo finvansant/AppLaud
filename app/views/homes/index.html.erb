@@ -1,13 +1,141 @@
-</head>
-<body>
-  <div id="title">AppLaud</div> 
-  <div id="viz">
-    <canvas id="analyser" width="1024" height="500"></canvas>
-    <canvas id="wavedisplay" width="1024" height="500"></canvas>
-  </div>
+  <!-- 
+  <section class="sidebar">
+
+    <div id="title" style="width: 800; height: 100%; float: left;">
+    AppLaud
+    </div>
+  </section> -->
+
+
+  
+  
+
+
+
+<!--     <div id="viz"
+      <div ondragover="return false">
+      <div ondragover="event.preventDefault()">
+        <canvas class="droparea" id="analyser" width="1024" height="500"></canvas>
+        <canvas class="droparea" id="wavedisplay" width="1024" height="500"></canvas>
+      </div>
+      </div>
+    </div>
+
+
   <div id="controls">
     <img id="record" src="assets/player_record.png" onclick="toggleRecording(this);">
     <a id="save" href="#"><img src="assets/download-icon.png"></a>
+  </div> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <div id="title"> AppLaud </div>
+      <div id="draggable" draggable="true" ondragstart="event.dataTransfer.mozSetDataAt("application/x-moz-file", file, 0)">
+        THIS AREA IS DRAGGABLE
+      </div>
+    </div>
+    <div class="span10">
+      <div class="dropzone" id="viz">
+        <div ondragover="return false">
+        <div ondragover="event.preventDefault()">
+          <canvas id="analyser" width="512" height="250"></canvas>
+          <canvas id="wavedisplay" width="512" height="250"></canvas>
+        </div>
+        </div>
+      </div>
+
+      <div id="controls">
+        <img id="record" src="assets/player_record.png" onclick="toggleRecording(this);">
+        <a id="save" href="#"><img src="assets/download-icon.png"></a>
+      </div>
+    </div>
   </div>
-</body>
+</div>
+
+ 
+
+
+
+
+<style>
+  #title {
+    margin-top: 20px;
+  }
+  #draggable {
+    text-align: center;
+    background: black;
+    color: white;
+    /*margin-top: 100px;*/
+  }
+
+  .dropzone {
+  /*  width: 1024px;
+    height: 500px;*/
+    background: white;
+    margin-bottom: 100px;
+    padding: 20px;
+  }
+
+
+
+</style>
+
+<script>
+  var dragged;
+
+  /* events fired on the draggable target */
+  document.addEventListener("drag", function( event ) {
+
+  }, false);
+
+  document.addEventListener("dragstart", function( event ) {
+      // store a ref. on the dragged elem
+      dragged = event.target;
+      // make it half transparent
+      event.target.style.opacity = .5;
+  }, false);
+
+  document.addEventListener("dragend", function( event ) {
+      // reset the transparency
+      event.target.style.opacity = "";
+  }, false);
+
+  /* events fired on the drop targets */
+  document.addEventListener("dragover", function( event ) {
+      // prevent default to allow drop
+      event.preventDefault();
+  }, false);
+
+  document.addEventListener("dragenter", function( event ) {
+      // highlight potential drop target when the draggable element enters it
+      if ( event.target.className == "dropzone" ) {
+          event.target.style.background = "#B8B8B8";
+      }
+
+  }, false);
+
+  document.addEventListener("dragleave", function( event ) {
+      // reset background of potential drop target when the draggable element leaves it
+      if ( event.target.className == "dropzone" ) {
+          event.target.style.background = "";
+      }
+
+  }, false);
+
+  document.addEventListener("drop", function( event ) {
+      // prevent default action (open as link for some elements)
+      event.preventDefault();
+      // move dragged elem to the selected drop target
+      if ( event.target.className == "dropzone" ) {
+          event.target.style.background = "";
+          dragged.parentNode.removeChild( dragged );
+          event.target.appendChild( dragged );
+      }
+    
+  }, false);
+</script>
 </html>
+
