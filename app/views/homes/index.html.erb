@@ -1,13 +1,18 @@
-</head>
-<body>
-  <div id="title" style="display: block;">AppLaud</div> 
-    <div id="viz">
-      <canvas id="analyser" width="1024" height="500"></canvas>
+<div id="title" style="display: block;">AppLaud</div> 
+<div id="viz">
+    <canvas id="analyser" width="1024" height="500"></canvas>
+</div>
+
+<div id="viz2">
+<div class="jumbotron scroll">
+  <div id="parent">
       <canvas id="wavedisplay" width="1024" height="500"></canvas>
-    </div>
-    <div id="controls">
-      <img id="record" src="assets/player_record.png" onclick="toggleRecording(this);">
-      <a id="save" href="#"><img src="assets/download-icon.png"></a>
-    </div>
-</body>
-</html>
+        <div class="add-wavedisplay"><!-- Add more wavedisplays here --></div>
+      </div>
+  </div>
+</div>
+
+  <div id="controls">
+    <img id="record" src="assets/player_record.png" onclick="toggleRecording(this);">
+    <a id="save" href="#"><img src="assets/download-icon.png"></a>
+  </div>
