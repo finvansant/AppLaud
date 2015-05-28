@@ -63,9 +63,17 @@ canvas {
   justify-content: space-around;
   align-items: center;
 }
+#viz2 {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
 @media (orientation: landscape) {
   body { flex-direction: row;}
   #controls { flex-direction: column; height: 100%; width: 10%;}
-  #viz { height: 100%; width: 90%;}
+  #viz { height: 100%; width: 60%;}
 }
 

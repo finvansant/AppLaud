@@ -58,6 +58,20 @@ function toggleRecording( e ) {
         audioRecorder.stop();
         e.classList.remove("recording");
         audioRecorder.getBuffers( gotBuffers );
+        $("#wavedisplay").attr('id', 'id_new');
+
+        var canvas = document.getElementById("viz2");
+        // canvas.removeChild(canvas.childNodes[0]);
+
+        $(".add-wavedisplay").append("<canvas id='wavedisplay' width='1024' height='500'></canvas>"+
+                                    "<p>Length of recording:</p>"+
+                                    "<div id='time'></div>"+
+                                    "<p>Number of hits above 0.2 level:</p>"+
+                                    "<div id='hits'></div>");
+
+        // $('#parent').find('div').first().hide();
+        // $('div#parent > div:eq(0)').css("display", "none");
+
     } else {
         // start recording
         if (!audioRecorder)
