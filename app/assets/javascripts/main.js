@@ -38,7 +38,7 @@ function saveAudio() {
 }
 
 function gotBuffers( buffers ) {
-    var canvas = document.getElementById( "wavedisplay" );
+    var canvas = document.getElementById( "recording" );
 
     drawBuffer( canvas.width, canvas.height, canvas.getContext('2d'), buffers[0] );
 
@@ -58,20 +58,14 @@ function toggleRecording( e ) {
         audioRecorder.stop();
         e.classList.remove("recording");
         audioRecorder.getBuffers( gotBuffers );
-        $("#wavedisplay").attr('id', 'id_new');
-
+        $("#recording").attr('id', 'id_new');
         var canvas = document.getElementById("viz2");
-        // canvas.removeChild(canvas.childNodes[0]);
-
-        $(".add-wavedisplay").append("<canvas id='wavedisplay' width='1024' height='500'></canvas>"+
+        $(".add-recording").append("<canvas id='recording' width='1024' height='500'></canvas>"+
                                     "<p>Length of recording:</p>"+
                                     "<div id='time'></div>"+
                                     "<p>Number of hits above 0.2 level:</p>"+
                                     "<div id='hits'></div>");
-
-        // $('#parent').find('div').first().hide();
-        // $('div#parent > div:eq(0)').css("display", "none");
-
+        $('#id_new').hide();
     } else {
         // start recording
         if (!audioRecorder)
@@ -99,7 +93,7 @@ function cancelAnalyserUpdates() {
 
 function updateAnalysers(time) {
     if (!analyserContext) {
-        var canvas = document.getElementById("analyser");
+        var canvas = document.getElementById("display");
         canvasWidth = canvas.width;
         canvasHeight = canvas.height;
         analyserContext = canvas.getContext('2d');
