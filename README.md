@@ -1,6 +1,6 @@
 # Applaud
 
-AppLaud gives you the means to rank audience feedback for any group presentation, meetup, conference using the simple metric of applause.
+AppLaud gives you the means to rank audience feedback for any group presentation, meetup, or conference using the simple metric of applause.
 
 ![alt tag](https://raw.github.com/finvansant/AppLaud_app/master/public/applaud_logo.png)
 
