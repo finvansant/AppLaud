@@ -1,15 +1,20 @@
 function drawBuffer( width, height, context, data ) {
+    
     console.log('length of recording:')
     console.log(data.length);
     $("#time:empty").append(data.length);
+    
     var step = Math.ceil( data.length / width );
     var high = 0;
     for (var db in data){
-        if (data[db] > 0.1) { high+=1};
+        if (data[db] > 0.05) { high+=1};
     };
-    console.log('number of hits above 0.2 level:')
+    console.log('number of hits above 0.1 level:')
     console.log(high);
     $("#hits:empty").append(high);
+
+    score = Math.round(high / data.length * 100)
+    $("#score:empty").append(score)
 
     var amp = height / 2;
     context.fillStyle = "white";

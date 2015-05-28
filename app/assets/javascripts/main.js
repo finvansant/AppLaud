@@ -61,9 +61,11 @@ function toggleRecording( e ) {
         $("#recording").attr('id', 'id_new');
         var canvas = document.getElementById("viz2");
         $(".add-recording").append("<canvas id='recording' width='1024' height='500'></canvas>"+
+                                    "<p>Score:</p>"+
+                                    "<div id='score'></div>"+                        
                                     "<p>Length of recording:</p>"+
                                     "<div id='time'></div>"+
-                                    "<p>Number of hits above 0.2 level:</p>"+
+                                    "<p>Number of hits above 0.1 level:</p>"+
                                     "<div id='hits'></div>");
         $('#id_new').hide();
     } else {
@@ -151,7 +153,7 @@ function gotStream(stream) {
     audioInput = realAudioInput;
     audioInput.connect(inputPoint);
 
-//    audioInput = convertToMono( input );
+    // audioInput = convertToMono( input );
 
     analyserNode = audioContext.createAnalyser();
     analyserNode.fftSize = 2048;
