@@ -1,12 +1,10 @@
 # Applaud
 
-## Description
-
-Add a short description of your app.
+AppLaud gives you the means to rank audience feedback for any group presentation, meetup, conference using the simple metric of applause.
 
 ## Screenshots
 
-Add some spiffy screenshots of your app here.
+![alt tag](https://raw.github.com/finvansant/AppLaud_app/master/public/applaud_logo.png)
 
 ## Background
 
