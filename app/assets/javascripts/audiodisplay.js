@@ -5,7 +5,7 @@ function drawBuffer( width, height, context, data ) {
     var step = Math.ceil( data.length / width );
     var high = 0;
     for (var db in data){
-        if (data[db] > 0.2) { high+=1};
+        if (data[db] > 0.1) { high+=1};
     };
     console.log('number of hits above 0.2 level:')
     console.log(high);
