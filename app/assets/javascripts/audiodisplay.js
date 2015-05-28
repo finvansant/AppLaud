@@ -7,7 +7,7 @@ function drawBuffer( width, height, context, data ) {
     for (var db in data){
         if (data[db] > 0.1) { high+=1};
     };
-    console.log('number of hits above 0.2 level:')
+    console.log('number of hits above 0.1 level:')
     console.log(high);
     $("#hits:empty").append(high);
 
