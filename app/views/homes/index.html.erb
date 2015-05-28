@@ -1,18 +1,77 @@
-<div id="title" style="display: block;">AppLaud</div> 
-<div id="viz">
-    <canvas id="display" width="1024" height="500"></canvas>
-</div>
 
-<div id="viz2">
-<div class="jumbotron scroll">
-  <div id="parent">
-      <canvas id="recording" width="1024" height="500"></canvas>
-        <div class="add-recording"><!-- Add more recordings here --></div>
-      </div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+      <form class="navbar-form navbar-right">
+        <input type="text" class="form-control" placeholder="Search...">
+      </form>
+    </div>
   </div>
-</div>
+</nav>
 
-  <div id="controls">
-    <img id="record" src="assets/player_record.png" onclick="toggleRecording(this);">
-    <a id="save" href="#"><img src="assets/download-icon.png"></a>
-  </div>
+<section class="container-fluid" id="board">
+  <div class="row">
+      <aside class="col-md-3 sidebar">
+      <h1 class="page-header">AppLaud</h1>
+
+            <section id="members">
+
+            <h1>Who's in?</h1>
+            <ul  class="nav nav-sidebar">
+              <li><img src="lannister.png" alt=""></li>
+              <li ><img src="stark.png" alt=""></li>
+              <li ><img src="tyrell.png" alt=""></li>
+              <li ><img src="targaryen.png" alt=""></li>
+            </ul>
+          </section>
+          
+          
+        
+      </aside>
+      
+      <main class="col-md-9 main">
+        <section class="jumbotron">
+           <div id="viz">
+            <canvas id="display" width="1024" height="500"></canvas>
+            </div>
+            <div id="controls">
+            <img id="record" src="assets/player_record.png" onclick="toggleRecording(this);">
+            <!-- <a id="save" href="#"><img src="assets/download-icon.png"></a> -->
+          </div>
+        </section>
+          
+
+
+        
+        
+        
+        <div id="viz2">
+        <div class="jumbotron scroll">
+          <div id="parent">
+              <canvas id="recording" width="1024" height="500" class="rec-display"></canvas>
+                <ul class="add-recording"><!-- Add more recordings here --></ul>
+              </div>
+          </div>
+        </div>
+        
+          
+      </main>
+    </div><!-- row -->
+  </section><!--container-fluid -->
+
+
+

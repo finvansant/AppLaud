@@ -1,0 +1,121 @@
+html, body {
+	font-family:'Quicksand', sans-serif;
+  font-size: 24px;
+  background-color: red;
+  
+
+}
+#board {
+	width: 100%;
+	padding: 0px;
+	margin: 0;
+	flex-direction: row;
+}
+.row {
+	overflow: hidden;
+	width: 100%;
+	padding: 50px 0px 50px;
+	margin: 0px;
+}
+
+aside {
+	height: 100%;
+	min-height: 100%;
+	background-color: #fff;
+	border-right: 4px solid #f3f3f3;
+}
+
+#members {
+	li {
+		padding: 20px 35%;
+		img {
+			width: 100%;
+		}
+		font-size: 3rem;
+		// span {
+		// 	display: inline-block;
+		// 	width: 50px;
+		// 	height: 50px;
+		// 	border-radius: 25px;
+		// }//span
+		
+	}//li
+}
+main {
+	position: relative;
+	background-color: #fff;
+	padding: 0px;
+	margin: 0px;
+
+}
+
+.jumbotron {
+	overflow: hidden;
+	background-color: #fff !important;
+	#viz {
+		width: 80%;
+		float: left;
+		#display {
+			width: 100%;
+			height: 300px;	
+		}//display
+		
+	}//viz
+	#controls {
+			float: left;
+			width: 10%;
+			padding-top: 70px;
+			padding-left: 20px;
+		}
+}
+
+
+canvas {
+	box-shadow: none !important;
+}
+
+
+.rec-display {
+	width: 500px;
+	height: 100px;
+}
+ul.add-recording {
+	overflow: hidden;
+	list-style-type: none;
+	li {
+		width: 40%;
+		float: left;
+		&:first-child:before {
+			content: 'Lannisters';
+			font-size: 3rem;
+		}
+		&:nth-child(2n):before {
+			content: 'Stark';
+			font-size: 3rem;
+		}
+		&:nth-child(3n):before {
+			content: 'Tyrell';
+			font-size: 3rem;
+		}
+		&:nth-child(4n):before {
+			content: 'Targaryen';
+			font-size: 3rem;
+		}
+	}
+}
+#score {
+	font-size: 5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -72,13 +72,13 @@ function toggleRecording( e ) {
         counter ++;
         $("#recording").attr('id', 'recording'+counter);
         var canvas = document.getElementById("viz2");
-        $(".add-recording").append("<canvas id='recording' width='1024' height='500'></canvas>"+
+        $(".add-recording").append("<li>"+"<canvas id='recording' width='1024' height='500'></canvas>"+
                                     "<p>Score:</p>"+
                                     "<div id='score'></div>"+                        
                                     "<p>Length of recording:</p>"+
                                     "<div id='time'></div>"+
                                     "<p>Number of hits above 0.1 level:</p>"+
-                                    "<div id='hits'></div>");
+                                    "<div id='hits'></div>"+"</li>");
         //hides the first recording, which is just a blank canvas
         $('#recording1').hide();
     } else {
