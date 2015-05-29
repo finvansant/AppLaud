@@ -74,21 +74,22 @@ function toggleRecording( e ) {
 
         $(".add-recording").append("<li id='new-recording"+
                                     counter+
-                                    "'><canvas id='recording' width='1024' height='500'></canvas>"+
-                                    "<button id='"+
+                                    "'class='box'>"+"<h1 class='rc-name'>Team appLaud</h1>"+"<button id='"+
                                     counter+
-                                    "' onClick='deleteRecording(this.id)'>Delete</button>"+
-
-                                    "<p>Score:</p>"+
-                                    "<div id='score'></div>"+                        
-                                    "<p>Length of recording:</p>"+
-                                    "<div id='time'></div>"+
-                                    "<p>Number of hits above 0.1 level:</p>"+
-
-                                    "<div id='hits'></div></li>");
-
-        //hides the first recording, which is just a blank canvas
-        $('#recording1').hide();
+                                    "' onClick='deleteRecording(this.id)'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></button>"+
+                                    "<div class='container row'>"+
+                                    "<section class='nr-can'>"+
+                                    "<canvas id='recording' width='1024' height='500'></canvas></section>"+
+                                    "<section class='nr-score'><span><h3>Score:</h3>"+
+                                    "<h1 class='score'></h1></span></section></div>"+
+                                    "<section class='nr-info'><ul>"+
+                                    "<li>Length of recording:"+
+                                    "<span class='time'></span>"+
+                                    "</li><li>Number of hits above 0.1 level:"+
+                                    "<span class='hits'></span></li></ul></section>"+
+                                    "</li>"); 
+        //hides all scores
+        $('.score').hide();
     } else {
         // start recording
         if (!audioRecorder)
