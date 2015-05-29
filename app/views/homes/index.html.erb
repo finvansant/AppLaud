@@ -49,12 +49,12 @@
             <canvas id="display" width="1024" height="500"></canvas>
             </div>
             <div id="controls">
+            <a href="#" data-toggle="modal" data-target="#nameModal">
             <img id="record" src="assets/player_record.png" onclick="toggleRecording(this);">
+            </a>
             <!-- <a id="save" href="#"><img src="assets/download-icon.png"></a> -->
           </div>
         </section>
-          
-
 
         
         
@@ -67,11 +67,42 @@
               </div>
           </div>
         </div>
-        
-          
+
+
       </main>
     </div><!-- row -->
   </section><!--container-fluid -->
 
+        <div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="nameModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                    <h4 class="modal-title" id="myModalLabel">Please Provide Name </h4>
+                    </div>
+                    <div class="modal-body">
+                          <form method="POST" class="form-horizontal" onsubmit="return false">
+                             <input id="id_name" maxlength="250" name="name" type="text">
+                          </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Store name</button>
+                </div>
+            </div>
+          </div>
+        </div>
+
+
+<!--         <div class="modal-backdrop fade in"></div>
+        <div id="modal-from-dom" class="modal hide fade in" style="display: block;">
+          <div class="modal-header">
+            <a href="#" class="close">x</a>
+            <h3>Enter Team Name Below</h3>
+            </div>
+          <div class="modal-body">
+            <p>......</p>
+            </div>
+           -->
 
 

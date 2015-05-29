@@ -5,15 +5,19 @@ function drawBuffer( width, height, context, data ) {
     $("#time:empty").append(data.length);
     
     var step = Math.ceil( data.length / width );
+    var real_length = 0;
     var high = 0;
-    for (var db in data){
-        if (data[db] > 0.05) { high+=1};
+    for (var pcm in data){
+        if (data[pcm] > 0.02) { real_length+=1 };
+        if (data[pcm] > 0.1) { high+=1 };
     };
+    console.log('real length:')
+    console.log(real_length)
     console.log('number of hits above 0.1 level:')
     console.log(high);
     $("#hits:empty").append(high);
 
-    score = Math.round(high / data.length * 100)
+    score = Math.round(high / real_length * 100)
     $("#score:empty").append(score)
 
     var amp = height / 2;

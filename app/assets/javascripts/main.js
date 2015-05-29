@@ -52,14 +52,14 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 
-//keypress on spacebar clicks the record button
-$(function() {
-  $(document).keypress(function(evt) {
-    if (evt.keyCode == 32) {
-      $('#record').click();
-    }
-  });
-})
+// //keypress on spacebar clicks the record button
+// $(function() {
+//   $(document).keypress(function(evt) {
+//     if (evt.keyCode == 32) {
+//       $('#record').click();
+//     }
+//   });
+// })
 
 var counter = 0
 function toggleRecording( e ) {
@@ -87,8 +87,17 @@ function toggleRecording( e ) {
 
                                     "<div id='hits'></div></li>");
 
+
+
         //hides the first recording, which is just a blank canvas
+        $('#basicModal').modal(options);
+        var options = {
+            "backdrop" : "static"
+        }
+
         $('#recording1').hide();
+
+
     } else {
         // start recording
         if (!audioRecorder)
@@ -219,5 +228,78 @@ function initAudio() {
             console.log(e);
         });
 }
+
+ var Modal = function ( content, options ) {
+    this.settings = $.extend({}, $.fn.modal.defaults, options)
+    this.$element = $(content)
+      .delegate('.close', 'click.modal', $.proxy(this.hide, this))
+
+    if ( this.settings.show ) {
+      this.show()
+    }
+
+    return this
+  }
+
+  Modal.prototype = {
+
+      toggle: function () {
+        return this[!this.isShown ? 'show' : 'hide']()
+      }
+
+    , show: function () {
+        var that = this
+        this.isShown = true
+        this.$element.trigger('show')
+
+        escape.call(this)
+        backdrop.call(this, function () {
+          var transition = $.support.transition && that.$element.hasClass('fade')
+
+          that.$element
+            .appendTo(document.body)
+            .show()
+
+          if (transition) {
+            that.$element[0].offsetWidth // force reflow
+          }
+
+          that.$element.addClass('in')
+
+          transition ?
+            that.$element.one(transitionEnd, function () { that.$element.trigger('shown') }) :
+            that.$element.trigger('shown')
+
+        })
+
+        return this
+      }
+
+    , hide: function (e) {
+        e && e.preventDefault()
+
+        if ( !this.isShown ) {
+          return this
+        }
+
+        var that = this
+        this.isShown = false
+
+        escape.call(this)
+
+        this.$element
+          .trigger('hide')
+          .removeClass('in')
+
+        $.support.transition && this.$element.hasClass('fade') ?
+          hideWithTransition.call(this) :
+          hideModal.call(this)
+
+        return this
+      }
+
+  }
+
+
 
 window.addEventListener('load', initAudio );
