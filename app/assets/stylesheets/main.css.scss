@@ -1,55 +1,41 @@
+$orange: #15BDDE;
 html, body {
-	font-family:'Quicksand', sans-serif;
+	font-family:'Quicksand', sans-serif !important;
   font-size: 24px;
   background-color: red;
-  
 
 }
+
+.wrapper-all {
+  position: relative;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.navbar {
+	h1{
+		background: url('images/applaud.png') no-repeat left center ;
+	}
+}
+
 #board {
+	position: relative;
 	width: 100%;
-	padding: 0px;
-	margin: 0;
+	padding: 100px 0px 20px;
+	margin: 0px;
 	flex-direction: row;
 }
-.row {
-	overflow: hidden;
-	width: 100%;
-	padding: 50px 0px 50px;
-	margin: 0px;
+
+canvas {
+	box-shadow: none !important;
 }
 
-aside {
-	height: 100%;
-	min-height: 100%;
-	background-color: #fff;
-	border-right: 4px solid #f3f3f3;
-}
-
-#members {
-	li {
-		padding: 20px 35%;
-		img {
-			width: 100%;
-		}
-		font-size: 3rem;
-		// span {
-		// 	display: inline-block;
-		// 	width: 50px;
-		// 	height: 50px;
-		// 	border-radius: 25px;
-		// }//span
-		
-	}//li
-}
-main {
-	position: relative;
-	background-color: #fff;
-	padding: 0px;
-	margin: 0px;
-
-}
 
 .jumbotron {
+	widows: 90%;
+	margin: 0px auto;
+	padding: 0px;
 	overflow: hidden;
 	background-color: #fff !important;
 	#viz {
@@ -59,52 +45,127 @@ main {
 			width: 100%;
 			height: 300px;	
 		}//display
-		
 	}//viz
 	#controls {
 			float: left;
-			width: 10%;
-			padding-top: 70px;
-			padding-left: 20px;
+			width: 20%;
+			padding-top: 3%;
+			
 		}
 }
 
-
-canvas {
-	box-shadow: none !important;
-}
-
-
-.rec-display {
-	width: 500px;
-	height: 100px;
-}
-ul.add-recording {
-	overflow: hidden;
-	list-style-type: none;
-	li {
-		width: 40%;
-		float: left;
-		&:first-child:before {
-			content: 'Lannisters';
-			font-size: 3rem;
-		}
-		&:nth-child(2n):before {
-			content: 'Stark';
-			font-size: 3rem;
-		}
-		&:nth-child(3n):before {
-			content: 'Tyrell';
-			font-size: 3rem;
-		}
-		&:nth-child(4n):before {
-			content: 'Targaryen';
-			font-size: 3rem;
-		}
+.rec-container {
+	position: fixed;
+	width: 100%;
+	margin: 0px;
+	.scroll {
+		width: 100%;
+	}//scroll
+	ul {
+		overflow: hidden;
+		list-style-type: none;
 	}
 }
+.add-recording {
+	padding-top: 40px;
+	.box {
+		position: relative;
+		width: 30%;
+		float: left;
+		margin-left: 2%;
+		margin-bottom: 50px;
+		outline: 6px solid #fff;
+		border-radius: 20px;
+		border: 4px solid $orange;
+	}//box
+	.rc-name {
+		position: absolute;
+		top: -50px;
+		padding: 0px 3px;
+		margin-left: 20px;
+		color: $orange;
+		background-color: #fff;
+	}
+	button {
+		position: absolute;
+		top: -16px;
+		right: 20px;
+		z-index: 100;
+		width: 32px;
+		height: 32px;
+		border-radius: 16px;
+		border: 2px solid $orange;
+		background-color: #fff;
+		color: $orange;
+		font-size: 1.8rem;
+		text-align: left;
+		text-indent: 0px;
+		padding-top: 4px;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+	.container {
+		width: 100%;
+		padding: 20px;
+		overflow: hidden;
+	}
+	.nr-can {
+		width: 70%;
+		float: left;	
+	}
+	.nr-score {
+		width: 30%;
+		float: left;
+		//opacity: 0;
+		transition: all 0.8s;
+		span {
+			display: block;
+			width: 120px;
+			height: 120px;
+			border-radius: 60px;
+			background-color: $orange;
+			color: #fff;
+			padding: 3px;
+			margin: 15px;
+		}
+		&.show {
+			opacity: 1;
+			transition: all 0.8s;
+		}
+	}
+	.nr-info {
+		width: 100%;
+		font-size: 2rem;
+		li {
+			font-size: 2rem;
+			text-align: left;
+		}
+	}
+	.rec-display {
+		width: 300px;
+		height: 100px;
+	}//
+
+}//add-recording
+
 #score {
 	font-size: 5rem;
+}
+
+nav.results {
+	position: absolute;
+	bottom: 20px;
+	left: 33%;
+	button {
+		width: 250px;
+		margin: 10px auto;
+		font-size: 3rem;
+		background-color: $orange;
+		color: #fff;
+		border: none;
+		border-radius: 20px;
+	}
 }
 
 

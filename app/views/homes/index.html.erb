@@ -1,77 +1,75 @@
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"></a>
+<div class="wrapper-all">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <%= image_tag 'applaud.png' %>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Help</a></li>
+        </ul>
+      </div>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Help</a></li>
-      </ul>
-      <form class="navbar-form navbar-right">
-        <input type="text" class="form-control" placeholder="Search...">
-      </form>
-    </div>
-  </div>
-</nav>
-
-<section class="container-fluid" id="board">
-  <div class="row">
-      <aside class="col-md-3 sidebar">
-      <h1 class="page-header">AppLaud</h1>
-
-            <section id="members">
-
-            <h1>Who's in?</h1>
-            <ul  class="nav nav-sidebar">
-              <li><img src="lannister.png" alt=""></li>
-              <li ><img src="stark.png" alt=""></li>
-              <li ><img src="tyrell.png" alt=""></li>
-              <li ><img src="targaryen.png" alt=""></li>
-            </ul>
-          </section>
-          
-          
-        
-      </aside>
-      
-      <main class="col-md-9 main">
-        <section class="jumbotron">
-           <div id="viz">
-            <canvas id="display" width="1024" height="500"></canvas>
-            </div>
-            <div id="controls">
-            <img id="record" src="assets/player_record.png" onclick="toggleRecording(this);">
-            <!-- <a id="save" href="#"><img src="assets/download-icon.png"></a> -->
-          </div>
-        </section>
-          
-
-
-        
-        
-        
-        <div id="viz2">
-        <div class="jumbotron scroll">
+  </nav>
+  
+  <main class="container-fluid main" id="board">
+    <section class="jumbotron">
+      <div id="viz">
+        <canvas id="display" width="1024" height="500"></canvas>
+      </div>
+      <div id="controls">
+        <img id="record" src="assets/player_record.png" onclick="toggleRecording(this);">
+        <!-- <a id="save" href="#"><img src="assets/download-icon.png"></a> -->
+      </div>
+    </section>
+            
+    <section class="rec-container">
+      <div id="viz2">
+        <div class="scroll">
           <div id="parent">
               <canvas id="recording" width="1024" height="500" class="rec-display"></canvas>
                 <ul class="add-recording"><!-- Add more recordings here --></ul>
               </div>
           </div>
-        </div>
-        
-          
-      </main>
-    </div><!-- row -->
-  </section><!--container-fluid -->
+      </div>
+    </section>
+  </main>
+
+  <nav class="results">
+    <button class="btn">Show Results</button>
+  </nav>
+</div><!--wrapper-all -->
+    
+      
+
+<!-- <li id="new-recording1" class="box">
+  <button id="1" onclick="deleteRecording(this.id)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  <div class="container row">
+    <section class="nr-info">
+      <ul>
+        <li>
+          <canvas id="recording" width="1024" height="500"></canvas>
+        </li>
+        <li>Length of recording:<span class="time">45056</span></li>
+        <li>Number of hits above 0.1 level:<span class="hits">4781</span></li>
+      </ul>
+    </section>
+    <section class="nr-score">
+      <h3>Score:</h3>
+      <h1 class="score" style="display: none;">27</h1>
+    </section>
+  </div>
+</li> -->
+
+    
 
 
 
