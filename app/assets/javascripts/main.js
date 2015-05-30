@@ -54,6 +54,7 @@ function doneEncoding( blob ) {
 
 //keypress on spacebar clicks the record button
 $(function() {
+    
   $(document).keypress(function(evt) {
     if (evt.keyCode == 32) {
       $('#record').click();
@@ -66,13 +67,36 @@ function switchBtn(){
     $('#record span').toggleClass('glyphicon-record glyphicon-stop');
 }
 
+
+// $(function() {
+
+
+//     document.addEventListener("change", function(){
+//         console.log("DVF");
+//     //document.getElementById("demo").innerHTML = "Hello World";
+//     });
+
+//   //   $('.rec-name').focus(function(event){
+//   //   console.log(event);
+//   // });
+//   // $(document).keypress(function(evt) {
+//   //   if (evt.keyCode == 32) {
+//   //     $('#record').click();
+//   //   }
+//   // });
+// })
+
+
+
+// function winner(data)
+
 var counter = 0
 function toggleRecording( e ) {
     $('#intro').fadeOut('slow');
 
     if (e.classList.contains("recording")) {
         // stop recording
-        $('#nameModal').modal('show');
+       // $('#nameModal').modal('show');
         switchBtn();
         audioRecorder.stop();
         e.classList.remove("recording");
@@ -85,7 +109,9 @@ function toggleRecording( e ) {
             "<li id='new-recording"+counter+
             "' class='box col-xs-12 col-lg-4'>"+
             "<div class='panel'>"+
-            "<h1 class='rec-name'>Team appLaud</h1>"+
+            "<input type='text' placeholder='Enter Name' class='rec-name' >"+
+            
+        
             "<div id='"+counter+
             "' class='btn' onClick='deleteRecording(this.id)'><span class='glyphicon glyphicon-remove-circle' aria-hidden='true'></span></div>"+
             "<div class='row'>"+
@@ -115,30 +141,29 @@ function toggleRecording( e ) {
     }
 }
 
+ 
+
 function deleteRecording(recording_id)
 {
     $( "#new-recording"+recording_id ).remove();
 }
 
-var $recordings = $(".score");
+
 
 function toggleResults( e ) {
   $('.score').fadeIn();
   // console.log(getSorted('.score', 'id'));
 
-  // var numericallyOrderedScores = $(".score").sort(function (a, b) {
-  //   return $(a).find(".score").text() > $(b).find(".score").text();
-  // });
-  // $(".add-recording").html(numericallyOrderedScores);
-}
+var numericallyOrderedScores = $('.box').sort(function (a, b) {
+    return $(a).find(".score").text() < $(b).find(".score").text();
+  });
+  
+  var result = numericallyOrderedScores[0];
+  //var data =   numericallyOrderedScores[0].find($('.panel'));
+ // JON's=> $(result).clone().appendTo('#resultBody');
 
-// function getSorted(selector, attrName) {
-//     return $($(selector).toArray().sort(function(a, b){
-//         var aVal = parseInt(a.getAttribute(attrName)),
-//             bVal = parseInt(b.getAttribute(attrName));
-//         return bVal - aVal;
-//     }));
-// }
+   $('#resultBody').html(result);
+}
 
 function convertToMono( input ) {
     var splitter = audioContext.createChannelSplitter(2);

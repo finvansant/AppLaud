@@ -242,14 +242,17 @@ nav.results {
       opacity: 1;
     }
   }
-  .modal-body {
-    
-  }
+
   ul {
     overflow: hidden;
-    li {
-      color: #fff;
-    }
+  }
+}
+#resultBody {
+  li.box {
+    width: 100% !important;
+  }
+  .glyphicon-remove-circle {
+    color: #fff;
   }
 }
 #nameModal { 
