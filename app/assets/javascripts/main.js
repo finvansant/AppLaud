@@ -120,6 +120,25 @@ function deleteRecording(recording_id)
     $( "#new-recording"+recording_id ).remove();
 }
 
+var $recordings = $(".score");
+
+function toggleResults( e ) {
+  $('.score').fadeIn();
+  // console.log(getSorted('.score', 'id'));
+
+  // var numericallyOrderedScores = $(".score").sort(function (a, b) {
+  //   return $(a).find(".score").text() > $(b).find(".score").text();
+  // });
+  // $(".add-recording").html(numericallyOrderedScores);
+}
+
+// function getSorted(selector, attrName) {
+//     return $($(selector).toArray().sort(function(a, b){
+//         var aVal = parseInt(a.getAttribute(attrName)),
+//             bVal = parseInt(b.getAttribute(attrName));
+//         return bVal - aVal;
+//     }));
+// }
 
 function convertToMono( input ) {
     var splitter = audioContext.createChannelSplitter(2);
