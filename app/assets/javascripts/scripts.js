@@ -5,5 +5,5 @@ $(document).ready(function($) {
    //$('main').height(myHeight-200);
    
   	  //hides the first recording, which is just a blank canvas
-  $('#recording').hide();
+  // $('#recording').hide();
 })//
