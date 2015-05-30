@@ -1,5 +1,5 @@
 
-<div class="wrapper-all">
+<header>
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -9,8 +9,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-
-        <%= image_tag 'applaud.png' %>
+        <a href="../" class="navbar-brand">
+        <%= image_tag 'applaud.png' %></a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
@@ -19,56 +19,77 @@
       </div>
     </div>
   </nav>
+</header>
   
-  <main class="container-fluid main" id="board">
-    <section class="jumbotron">
+<main class="main" id="board">
+  <section class="jumbotron">
       <div id="viz">
-        <canvas id="display" width="1024" height="500"></canvas>
+        <canvas id="display" width="1024" height="250"></canvas>
       </div>
-      <div id="controls">
+      <button id="record" class="btn h2 start" onclick="toggleRecording(this);">Recording<span class="glyphicon glyphicon-record" aria-hidden="true"></span></button>
+      <!-- <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> -->
+      <!-- <div id="controls">
         <img id="record" src="assets/player_record.png" onclick="toggleRecording(this);">
-        <!-- <a id="save" href="#"><img src="assets/download-icon.png"></a> -->
-      </div>
-    </section>
-            
+      </div> -->
+  </section>
+
+  <section id="intro">
+    <h1>Hit the Button to Start Recording</h1>
+    <h1>Click on Show Results when Session is Finished</h1>
+  </section>
+     
+
     <section class="rec-container">
       <div id="viz2">
-        <div class="scroll">
-          <div id="parent">
-              <canvas id="recording" width="1024" height="500" class="rec-display"></canvas>
-                <ul class="add-recording"><!-- Add more recordings here --></ul>
-              </div>
-          </div>
+        <div id="parent container">
+            <!-- <canvas id="recording" width="1024" height="400" class="rec-display"></canvas> -->
+              <ul class="add-recording row">
+                
+                </ul>
+            </div>
+          
       </div>
     </section>
-  </main>
+</main>
 
-  <nav class="results">
-    <button class="btn">Show Results</button>
-  </nav>
-</div><!--wrapper-all -->
+<nav class="results">
+  <button type="button" class="btn h1"  data-toggle="modal" data-target="#resultsModal">Show Results<span class="glyphicon glyphicon-stats" aria-hidden="true"></span></button>
+</nav>
+
+<div id ="resultsModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div><%= image_tag 'applaud.png' %></div>
+        
+      </div>
+      <ul class="modal-body">
+        <li id="new-recording4" class="box col-xs-12"><div class="panel"><h1 class="rec-name">Team appLaud</h1><div id="4" class="btn" onclick="deleteRecording(this.id)"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></div><div class="row"><section class="rec-canvas col-xs-12 col-lg-9"><canvas id="recording" width="1024" height="400"></canvas></section><section class="rec-score col-xs-12 col-lg-3"><h3>Score:</h3><h1 class="score" style="display: none;">51</h1></section></div><section class="rec-info"><ul><li>Length of recording:<span class="time">61440</span></li><li>Number of hits above 0.1 level:<span class="hits">2337</span></li></ul></section></div></li>
+      </ul>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal --> 
+<div id ="nameModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div><%= image_tag 'applaud.png' %></div>
+      </div>
+      <div class="modal-body">
+      <h3>Recording Title:</h3>
+      <form>
+        <input type="text" placeholder='Enter Name'>
+        <input type="submit" value="Submit" >
+      </form>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal --> 
+
     
       
-
-<!-- <li id="new-recording1" class="box">
-  <button id="1" onclick="deleteRecording(this.id)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-  <div class="container row">
-    <section class="nr-info">
-      <ul>
-        <li>
-          <canvas id="recording" width="1024" height="500"></canvas>
-        </li>
-        <li>Length of recording:<span class="time">45056</span></li>
-        <li>Number of hits above 0.1 level:<span class="hits">4781</span></li>
-      </ul>
-    </section>
-    <section class="nr-score">
-      <h3>Score:</h3>
-      <h1 class="score" style="display: none;">27</h1>
-    </section>
-  </div>
-</li> -->
-
     
 
 

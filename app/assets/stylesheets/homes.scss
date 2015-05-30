@@ -1,80 +1,276 @@
-// Place all the styles related to the Homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$blue: #15BDDE;
+$orange : #F48100;
+$gray: #c3c3c3;
 
 
-html { overflow: hidden; }
-body { 
-  font: 14pt Arial, sans-serif; 
-  background: lightgrey;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100%;
-  margin: 0 0;
+html {
+  //position: relative;
+  overflow: hidden;
 }
-
+body { 
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 0px;
+  margin: 0px;
+  font-family:'Quicksand', sans-serif !important;
+  font-size: 24px !important;
+  font-weight: bold !important;
+  //display: flex;
+  //flex-direction: column;
+}
 canvas { 
   display: inline-block; 
   background: #202020; 
   width: 95%;
   height: 45%;
-  box-shadow: 0px 0px 10px blue;
 }
-
-#title {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 20px;
+input[type=submit] {
+  float: right;
+  background-color: $blue;
+  color: #fff;
+  height: 40px;
+  border-radius: 20px;
+  border: 2px solid $blue;
+  font-size: 2rem;
+  font-weight: bold;
+  transition: all 0.8s;
+  &:hover {
+    color: #fff;
+    background-color: #000;
+    transition: all 0.8s;
+  }
 }
-
-
-#controls {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  height: 20%;
+button.btn {
+  position: absolute;
+  left: 40%;
+  width: 275px;
+  height: 60px;
+  background-color: $blue;
+  color: #fff;
+  border-radius: 25px;
+  border: 2px solid $blue;
+  font-size: 2.5rem;
+  font-weight: bold;
+  transition: all 0.8s;
+  &:focus {
+    color: #fff;
+    outline: none;
+  }
+  span {
+    top: 3px;
+    float: right;
+    margin-left: 10px;
+    font-size: 3rem;
+  }
+   &:hover {
+      color: #fff;
+      background-color: #000;
+      span {
+        color: red;
+      }
+      transition: all 0.8s;
+  }
+}
+// HEADER
+header {
+  .navbar-inverse {
+    z-index: 100;
+    height: 8vh;
+    margin: 0px;
+  }
+  .navbar-header img {
+    padding-top: 5px;
+  }
+  a {
+    width: 85%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+// MAIN
+main {
+  position: relative;
   width: 100%;
-  outline: none;
-  opacity: 1;
+  padding-top: 9vh;
+  margin: 0px;
+  //flex-direction: row;
 }
-
-
-
-#record { height: 14vh; opacity: 0.3; }
-#triggered { height: 14vh; opacity: 0.3; }
-#record.recording { 
-  // background: red;
-  // background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%); 
-  // background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%); 
-  // background: radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
-  opacity: 1;
-  
+section.jumbotron {
+  padding-top: 25px !important;
+  position: relative;
+  height: 31vh;
+  background-color: #fff !important;
+  border-bottom: 16px solid $blue;
+  button {
+    top: 40px;
+  }
 }
-#save, #save img { height: 14vh; }
-#save { opacity: 0.3;}
-#save[download] { opacity: 1;}
+#record {
+  &:before{
+    display: block;
+    float: left;
+    width: 70px;
+    transition: all 0.8s;
+  }
+  &.start:before {
+    content: 'Start';
+  }
+  &.stop:before {
+    content: 'Stop';
+  }
+}
 #viz {
-  height: 80%;
+  text-align: center;
+  #display {
+    width: 90%;
+    height: 250px;
+    margin: 0px auto;  
+  }//display
+}//viz
+#intro {
+    color: $blue;
+    text-align: center;
+    padding: 75px 100px;
+    h1 {
+      //font-size: 5rem;
+      font-weight: bold;
+    }
+  }
+section.rec-container {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  height: 50vh;
+  margin: 0px;
+  overflow: auto;
+  .parent {
+    padding-right: 20px;
+  }
+  ul {
+    overflow: hidden;
+    list-style-type: none;
+  }
 }
-#viz2 {
-  height: 100%;
+ul.add-recording {
+  padding-top: 10px;
+  .panel {
+    position: relative;
+    padding: 15px;
+    margin:  2%;
+    border-color: $blue;
+    .row {
+      padding-top: 7px;
+      color: $blue;
+      section {
+        margin: 0px;
+      }
+    }
+  }//panel
+  .btn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 100;    
+    color: $blue;
+    font-size: 3rem;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+  }
+}//add-recording
+
+.rec-name,
+.rec-score *{
+  color: $blue;
+  font-weight: bold;
+}
+
+.rec-canvas {
+  padding-right: 0px;
+}
+.rec-score {
+  padding-left: 0px;
+}
+.rec-display {
+  width: 300px;
+  height: 100px;
+}//
+
+.rec-info {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  ul {
+    padding: 0px;
+    margin: 0px;
+  }
+  li {
+    text-align: left;
+  }
 }
-@media (orientation: landscape) {
-  body { flex-direction: row;}
-  #controls { flex-direction: column; height: 100%; width: 10%;}
-  #viz { height: 100%; width: 60%;}
+
+nav.results {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 8vh;
+  background-color: #000;
+  text-align: center;
 }
+.modal {
+  .modal-header {
+    background-color: #000;
+    padding-bottom: 0px;
+    border-bottom: 4px solid $blue;
+    div {
+      width: 75%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .close, .close:hover {
+      color: #fff;
+      opacity: 1;
+    }
+  }
+  .modal-body {
+    
+  }
+  ul {
+    overflow: hidden;
+    li {
+      color: #fff;
+    }
+  }
+}
+#nameModal { 
+  .modal-body {
+    padding: 20px;
+    color: $blue;
+  }
+  h3 {
+    font-weight: bold;
+  }
+}
+input {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important; 
+  appearance: none !important;
+  border: none;
+}
+input {
+  background-color: #fff;
+  padding-bottom: 3px;
+  border-bottom: 2px solid $blue;
+  &:focus {
+    outline: transparent !important;
+  }
+  &:focus::-webkit-input-placeholder
+   {
+    transition: text-indent 0.5s 0.2s ease; 
+    text-indent: -100%;
+    opacity: 1;
+  }
+}
+
 
