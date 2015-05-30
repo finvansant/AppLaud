@@ -61,10 +61,19 @@ $(function() {
   });
 })
 
+function switchBtn(){
+    $('#record').toggleClass('start stop');
+    $('#record span').toggleClass('glyphicon-record glyphicon-stop');
+}
+
 var counter = 0
 function toggleRecording( e ) {
+    $('#intro').fadeOut('slow');
+
     if (e.classList.contains("recording")) {
         // stop recording
+        $('#nameModal').modal('show');
+        switchBtn();
         audioRecorder.stop();
         e.classList.remove("recording");
         audioRecorder.getBuffers( gotBuffers );
@@ -72,26 +81,32 @@ function toggleRecording( e ) {
         $("#recording").attr('id', 'recording'+counter);
         var canvas = document.getElementById("viz2");
 
-        $(".add-recording").append("<li id='new-recording"+
-                                    counter+
-                                    "'class='box'>"+"<h1 class='rc-name'>Team appLaud</h1>"+"<button id='"+
-                                    counter+
-                                    "' onClick='deleteRecording(this.id)'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></button>"+
-                                    "<div class='container row'>"+
-                                    "<section class='nr-can'>"+
-                                    "<canvas id='recording' width='1024' height='500'></canvas></section>"+
-                                    "<section class='nr-score'><span><h3>Score:</h3>"+
-                                    "<h1 class='score'></h1></span></section></div>"+
-                                    "<section class='nr-info'><ul>"+
-                                    "<li>Length of recording:"+
-                                    "<span class='time'></span>"+
-                                    "</li><li>Number of hits above 0.1 level:"+
-                                    "<span class='hits'></span></li></ul></section>"+
-                                    "</li>"); 
+        $(".add-recording").hide().append(
+            "<li id='new-recording"+counter+
+            "' class='box col-xs-12 col-lg-4'>"+
+            "<div class='panel'>"+
+            "<h1 class='rec-name'>Team appLaud</h1>"+
+            "<div id='"+counter+
+            "' class='btn' onClick='deleteRecording(this.id)'><span class='glyphicon glyphicon-remove-circle' aria-hidden='true'></span></div>"+
+            "<div class='row'>"+
+            "<section class='rec-canvas col-xs-12 col-lg-9'>"+
+            "<canvas id='recording' width='1024' height='400'></canvas></section>"+
+            "<section class='rec-score col-xs-12 col-lg-3'><h3>Score:</h3>"+
+            "<h1 class='score'></h1></section></div>"+
+            "<section class='rec-info'><ul>"+
+            "<li>Length of recording:"+
+            "<span class='time'></span>"+
+            "</li><li>Number of hits above 0.1 level:"+
+            "<span class='hits'></span></li></ul></section>"+
+            "</div></li>"
+            ).fadeIn('slow');
+
+
         //hides all scores
         $('.score').hide();
     } else {
         // start recording
+        switchBtn();
         if (!audioRecorder)
             return;
         e.classList.add("recording");
