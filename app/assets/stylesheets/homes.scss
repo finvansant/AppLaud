@@ -76,17 +76,26 @@ button.btn {
 header {
   .navbar-inverse {
     z-index: 100;
-    height: 8vh;
+    height: 80px;
     margin: 0px;
   }
-  .navbar-header img {
-    padding-top: 5px;
+  .navbar-header {
+    position: relative;
+    width: 40%;
+    height: 80px;
+    padding-left: 15px;
+    overflow: hidden;
   }
-  a {
-    width: 85%;
+  .navbar-brand {
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    //width: 85%;
+    height: 70px;
+    padding: 0px;
     img {
-      width: 100%;
-      height: auto;
+      height: 100%;
+      width: auto;
     }
   }
 }
@@ -103,7 +112,6 @@ section.jumbotron {
   position: relative;
   height: 31vh;
   background-color: #fff !important;
-  border-bottom: 16px solid $blue;
   button {
     top: 40px;
   }
@@ -211,8 +219,9 @@ ul.add-recording {
 nav.results {
   position: absolute;
   bottom: 0px;
+  z-index: 1000;
   width: 100%;
-  height: 8vh;
+  height: 90px;
   background-color: #000;
   text-align: center;
 }
