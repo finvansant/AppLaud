@@ -19,7 +19,7 @@ function drawBuffer( width, height, context, data ) {
 
     score = Math.round(high / real_length * 100)
     $(".score:empty").attr('id', score);
-    $(".score:empty").append(score)
+    $(".score:empty").append(score);
 
     var amp = height / 2;
     context.fillStyle = "white";
