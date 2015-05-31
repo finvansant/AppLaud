@@ -54,7 +54,7 @@ function doneEncoding( blob ) {
 
 //keypress on spacebar clicks the record button
 $(function() {
-    
+
   $(document).keypress(function(evt) {
     if (evt.keyCode == 32) {
       $('#record').click();
@@ -110,8 +110,7 @@ function toggleRecording( e ) {
             "' class='box col-xs-12 col-lg-4'>"+
             "<div class='panel'>"+
             "<input type='text' placeholder='Enter Name' class='rec-name' >"+
-            
-        
+            "<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>"+
             "<div id='"+counter+
             "' class='btn' onClick='deleteRecording(this.id)'><span class='glyphicon glyphicon-remove-circle' aria-hidden='true'></span></div>"+
             "<div class='row'>"+
@@ -141,7 +140,7 @@ function toggleRecording( e ) {
     }
 }
 
- 
+
 
 function deleteRecording(recording_id)
 {
@@ -281,3 +280,60 @@ function initAudio() {
 }
 
 window.addEventListener('load', initAudio );
+
+
+//disables input after enter
+function getName(){
+    $(".rec-name").each(function() {
+        var val = $(this).val();
+        if(val != "") {
+            //adds disabled
+            $(this).prop('disabled', true);
+            $(this).addClass('editable');
+            //adds edit button
+            $(this).next().fadeIn('slow');   
+        }
+    });      
+}
+
+
+document.addEventListener('change', getName );
+
+//edits name NOT WORKING!!!!!!!!!!
+
+$(function(){
+    $(".editable").click(function () {
+        console.log("span clicked");
+        $(this).prop('disabled', false);
+    });
+});
+// $( function() {
+//     document.on('click', ".glyphicon-pencil", function(){ 
+//         console.log( "Handl" );      
+//     });
+//     $( '.glyphicon-pencil' ).click( function() {
+//         debugger;
+//       console.log( "Handler for .click() called." );
+//     });
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
