@@ -1,8 +1,9 @@
 function drawBuffer( width, height, context, data ) {
-    
-    //console.log('length of recording:')
-    //console.log(data.length);
-    $(".time:empty").append(data.length);
+    console.log('length of recording:')
+    raw_time = 0;
+    raw_time = parseFloat(data.length / 44000).toFixed(2);
+    console.log(raw_time)
+    $(".time:empty").append(raw_time);
     
     var step = Math.ceil( data.length / width );
     var real_length = 0;
@@ -11,10 +12,10 @@ function drawBuffer( width, height, context, data ) {
         if (data[pcm] > 0.02) { real_length+=1 };
         if (data[pcm] > 0.1) { high+=1 };
     };
-    //console.log('real length:')
-    //console.log(real_length)
-    //console.log('number of hits above 0.1 level:')
-    //console.log(high);
+    console.log('real length:')
+    console.log(real_length)
+    console.log('number of hits above 0.1 level:')
+    console.log(high);
     $(".hits:empty").append(high);
 
     score = Math.round(high / real_length * 100)
