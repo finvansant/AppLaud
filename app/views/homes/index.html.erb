@@ -14,7 +14,82 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Help</a></li>
+          
+        <ul class="nav navbar-nav navbar-right">
+          <nav class="Help"> 
+          <li><a href="#" role="button" onclick="toggleResults(this);" data-toggle="modal" data-target="#helpModal">Help</a></li>
+          </nav>
+          <div id ="helpModal" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <div><%= image_tag 'applaud.png' %></div>
+                  
+                </div>
+                <ul id="helpBody" class="modal-body">
+                <ol type="1">
+                  <li>Click 'Start Recording' to begin recording your audiences' applause</li>
+                  <li>Once the clapping and cheering subsides, press 'Stop Recording' and enter your team name in the 'enter name' field</li>
+                  <li>Once each team has completed steps 1-2, click the 'Show Results' button to proclaim the winner!<br></li>
+                  <i>**Note: All scores are hidden until you click 'Show Results'</i>
+                </ol>
+                </ul>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal --> 
+        </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <nav class="About"> 
+                <li><a href="#" role="button" onclick="toggleResults(this);" data-toggle="modal" data-target="#aboutModal">About</a></li>
+                </nav>
+                <div id ="aboutModal" class="modal fade">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <div><%= image_tag 'applaud.png' %></div>
+                        
+                      </div>
+                      <ul id="aboutBody" class="modal-body">
+                        
+                        <li>Findlay Parke
+                          <ul style="list-style-type:disc">
+                            <li><a href="https://github.com/finvansant">Github Profile</a></li>
+                            <li><a href="http://people.flatironschool.com/profiles/findlay-parke">FS Profile</a></li>
+                          </ul>
+                        </li>
+
+                        <li>Jon Tow
+                          <ul style="list-style-type:disc">
+                            <li><a href="https://github.com/jonathantow">Github Profile</a></li>
+                            <li><a href="http://people.flatironschool.com/students/profiles/jon-tow">FS Profile</a></li>
+                        </ul>
+                        </li>
+
+                        <li>Lucy Orbach
+                          <ul style="list-style-type:disc">
+                            <li><a href="https://github.com/lucy-orbach">Github Profile</a></li>
+                            <li><a href="http://people.flatironschool.com/profiles/lucy-orbach">FS Profile</a></li>
+                          </ul>
+                        </li>
+
+                        <li>Tim Murray
+                          <ul style="list-style-type:disc">
+                            <li><a href="https://github.com/tmurray002">Github Profile</a></li>
+                            <li><a href="http://people.flatironschool.com/students/profiles/tim-murray">FS Profile</a></li>
+                          </ul>
+                        </li> 
+
+                      </ul>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->  
+                </ul>
+
+
+
         </ul>
       </div>
     </div>
