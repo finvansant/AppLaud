@@ -53,14 +53,14 @@ function doneEncoding( blob ) {
 }
 
 //keypress on spacebar clicks the record button
-$(function() {
+// $(function() {
 
-  $(document).keypress(function(evt) {
-    if (evt.keyCode == 32) {
-      $('#record').click();
-    }
-  });
-})
+//   // $(document).keypress(function(evt) {
+//   //   if (evt.keyCode == 32) {
+//   //     $('#record').click();
+//   //   }
+//   // });
+// })
 
 function switchBtn(){
     $('#record').toggleClass('start stop');
@@ -128,7 +128,7 @@ function toggleRecording( e ) {
 
 
         //hides all scores
-        $('.score').hide();
+        $('.rec-score').hide();
     } else {
         // start recording
         switchBtn();
@@ -150,18 +150,43 @@ function deleteRecording(recording_id)
 
 
 function toggleResults( e ) {
-  $('.score').fadeIn();
+    $('#resultBody').empty();
+    var numericallyOrderedScores = [];
+    var newArray = [];
+    var result = '';
   // console.log(getSorted('.score', 'id'));
 
-var numericallyOrderedScores = $('.box').sort(function (a, b) {
-    return $(a).find(".score").text() < $(b).find(".score").text();
-  });
-  
-  var result = numericallyOrderedScores[0];
+
+
+    numericallyOrderedScores = $('.box').sort(function (a, b) {
+        return $(a).find(".score").text() < $(b).find(".score").text();
+    });
+
+   // var result = function sort(numericallyOrderedScores) {
+   //    numericallyOrderedScores.concat().sort();
+   // }
+
+   //   $('#resultBody').html(result);
+    debugger;
+
+    // var result = numericallyOrderedScores[0];
+    // $('#resultBody').html(newArray);
+
+    // //var newArray = numericallyOrderedScores.clone();
+    // //var result = newArray.slice(0,1);
+    // //$('#resultBody').html(result);
+    // <ol>
+    // <li>Name:<span>Score:</span></li>
+    // <li>Team 1 <span>34</span></li>
+    // </ol>
+    
+
   //var data =   numericallyOrderedScores[0].find($('.panel'));
  // JON's=> $(result).clone().appendTo('#resultBody');
 
-   $('#resultBody').html(result);
+   
+   
+   $('.rec-score').fadeIn();
 }
 
 function convertToMono( input ) {
@@ -289,33 +314,20 @@ function getName(){
         if(val != "") {
             //adds disabled
             $(this).prop('disabled', true);
-            $(this).addClass('editable');
             //adds edit button
             $(this).next().fadeIn('slow');   
         }
     });      
 }
 
-
 document.addEventListener('change', getName );
 
-//edits name NOT WORKING!!!!!!!!!!
-
-$(function(){
-    $(".editable").click(function () {
-        console.log("span clicked");
-        $(this).prop('disabled', false);
-    });
+//edits name
+$(document).on('click', '.glyphicon-pencil', function (){
+   $(this).fadeOut('slow');
+   $(this).prev().prop("disabled", false).focus();
 });
-// $( function() {
-//     document.on('click', ".glyphicon-pencil", function(){ 
-//         console.log( "Handl" );      
-//     });
-//     $( '.glyphicon-pencil' ).click( function() {
-//         debugger;
-//       console.log( "Handler for .click() called." );
-//     });
-// });
+
 
 
 
