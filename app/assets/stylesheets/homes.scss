@@ -102,7 +102,7 @@ header {
   }
   .navbar-header {
     position: relative;
-    width: 40%;
+    width: 50%;
     height: 80px;
     padding-left: 15px;
     overflow: hidden;
@@ -207,11 +207,14 @@ ul.add-recording {
     -moz-appearance: none !important;
     appearance: none !important;
   }
+  .glyphicon-remove-circle {
+    z-index: 1000;
+  }
   .glyphicon-pencil {
     display: none;
     position: relative;
     left: -20px;
-    //color: #fff;
+    color: $blue;
     font-size: 2rem;
     cursor: pointer;
     //&.blue {
