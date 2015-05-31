@@ -154,39 +154,31 @@ function toggleResults( e ) {
     var numericallyOrderedScores = [];
     var newArray = [];
     var result = '';
-  // console.log(getSorted('.score', 'id'));
-
-
 
     numericallyOrderedScores = $('.box').sort(function (a, b) {
         return $(a).find(".score").text() < $(b).find(".score").text();
     });
 
-   // var result = function sort(numericallyOrderedScores) {
-   //    numericallyOrderedScores.concat().sort();
-   // }
+    
+    // var names = [];
+    // var scores = [];
+    // for (i = 0; i < 3; i++) { 
+    //     names.push(numericallyOrderedScores[i].find( $('input').val() ) );
+    //     scores.push(numericallyOrderedScores[i].find( $('.score').val() ) );
+    // }
 
-   //   $('#resultBody').html(result);
 
-    // var result = numericallyOrderedScores[0];
-    // $('#resultBody').html(newArray);
+    var result = numericallyOrderedScores[0];
+    $('#resultBody').html(result);
 
-    // //var newArray = numericallyOrderedScores.clone();
-    // //var result = newArray.slice(0,1);
-    // //$('#resultBody').html(result);
+
     // <ol>
     // <li>Name:<span>Score:</span></li>
     // <li>Team 1 <span>34</span></li>
     // </ol>
-    
-
-  //var data =   numericallyOrderedScores[0].find($('.panel'));
- // JON's=> $(result).clone().appendTo('#resultBody');
-
-   
    
    $('.rec-score').fadeIn();
-}
+} 
 
 function convertToMono( input ) {
     var splitter = audioContext.createChannelSplitter(2);
