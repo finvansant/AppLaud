@@ -121,7 +121,7 @@ function toggleRecording( e ) {
             "<section class='rec-info'><ul>"+
             "<li>Length of recording:"+
             "<span class='time'></span>"+
-            "</li><li>Number of hits above 0.1 level:"+
+            "</li><li>Hits above 0.1 pcm:"+
             "<span class='hits'></span></li></ul></section>"+
             "</div></li>"
             ).fadeIn('slow');
@@ -167,7 +167,6 @@ function toggleResults( e ) {
    // }
 
    //   $('#resultBody').html(result);
-    debugger;
 
     // var result = numericallyOrderedScores[0];
     // $('#resultBody').html(newArray);

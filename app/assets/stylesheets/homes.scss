@@ -63,7 +63,7 @@ input[type=submit] {
 }
 button.btn {
   position: absolute;
-  left: 40%;
+  left: 42%;
   width: 275px;
   height: 60px;
   background-color: $blue;
@@ -246,6 +246,12 @@ ul.add-recording {
   }
   li {
     text-align: left;
+  }
+  .time {
+    margin-left: 20px;
+  }
+  .hits {
+    margin-left: 20px;
   }
 }
 //footer
