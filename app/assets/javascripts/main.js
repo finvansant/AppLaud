@@ -87,8 +87,31 @@ function switchBtn(){
 // })
 
 
+// // function winner(data)
 
-// function winner(data)
+/// display/toggle Recording
+
+function validateForm(){ 
+    // create a deferred object
+    var r = $.Deferred();
+
+    function closeModal( event ){
+        event.preventDefault();
+        $('#nameModal').modal('hide');
+      // VALIDATE UNIQUENESS OF NAME SHOULD GO HERE  
+    }
+    document.addEventListener('submit', closeModal );
+
+
+    setTimeout(function () {
+    // and call `resolve` on the deferred object, once you're done
+    r.resolve();
+  }, 5000);
+
+  // return the deferred object
+  return r;
+}
+
 
 var counter = 0
 function toggleRecording( e ) {
@@ -96,35 +119,48 @@ function toggleRecording( e ) {
 
     if (e.classList.contains("recording")) {
         // stop recording
-       // $('#nameModal').modal('show');
-        switchBtn();
-        audioRecorder.stop();
-        e.classList.remove("recording");
-        audioRecorder.getBuffers( gotBuffers );
-        counter ++;
-        $("#recording").attr('id', 'recording'+counter);
-        var canvas = document.getElementById("viz2");
+       $('#nameModal').modal('show');
+       
+        validateForm().done( function(){
+            // gets name from nameForm
+            var name = $('input').val();
+            // switches the recording button
+            switchBtn();
+            //create audio
+                audioRecorder.stop();
+                e.classList.remove("recording");
+                audioRecorder.getBuffers( gotBuffers );
+                counter ++;
+                $("#recording").attr('id', 'recording'+counter);
+                var canvas = document.getElementById("viz2");
 
-        $(".add-recording").hide().append(
-            "<li id='new-recording"+counter+
-            "' class='box col-xs-12 col-lg-4'>"+
-            "<div class='panel'>"+
-            "<input type='text' placeholder='Enter Name' class='rec-name' >"+
-            "<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>"+
-            "<div id='"+counter+
-            "' class='btn' onClick='deleteRecording(this.id)'><span class='glyphicon glyphicon-remove-circle' aria-hidden='true'></span></div>"+
-            "<div class='row'>"+
-            "<section class='rec-canvas col-xs-12 col-lg-9'>"+
-            "<canvas id='recording' width='1024' height='400'></canvas></section>"+
-            "<section class='rec-score col-xs-12 col-lg-3'><h3>Score:</h3>"+
-            "<h1 class='score'></h1></section></div>"+
-            "<section class='rec-info'><ul>"+
-            "<li>Length of recording:"+
-            "<span class='time'></span>"+
-            "</li><li>Number of hits above 0.1 level:"+
-            "<span class='hits'></span></li></ul></section>"+
-            "</div></li>"
-            ).fadeIn('slow');
+                $(".add-recording").hide().append(
+                    "<li id='new-recording"+counter+
+                    "' class='box col-xs-12 col-lg-4'>"+
+                    "<div class='panel'>"+
+                    "<h2>"+
+                    name+
+                    "</h2>"+
+                    "<div id='"+counter+
+                    "' class='btn' onClick='deleteRecording(this.id)'><span class='glyphicon glyphicon-remove-circle' aria-hidden='true'></span></div>"+
+                    "<div class='row'>"+
+                    "<section class='rec-canvas col-xs-12 col-lg-9'>"+
+                    "<canvas id='recording' width='1024' height='400'></canvas></section>"+
+                    "<section class='rec-score col-xs-12 col-lg-3'><h3>Score:</h3>"+
+                    "<h1 class='score'></h1></section></div>"+
+                    "<section class='rec-info'><ul>"+
+                    "<li>Length of recording:"+
+                    "<span class='time'></span>"+
+                    "</li><li>Number of hits above 0.1 level:"+
+                    "<span class='hits'></span></li></ul></section>"+
+                    "</div></li>"
+                    ).fadeIn('slow');
+            });
+        
+
+        
+
+        
 
 
         //hides all scores
@@ -154,37 +190,34 @@ function toggleResults( e ) {
     var numericallyOrderedScores = [];
     var newArray = [];
     var result = '';
-  // console.log(getSorted('.score', 'id'));
-
-
 
     numericallyOrderedScores = $('.box').sort(function (a, b) {
         return $(a).find(".score").text() < $(b).find(".score").text();
     });
 
-   // var result = function sort(numericallyOrderedScores) {
-   //    numericallyOrderedScores.concat().sort();
-   // }
+    
+    // var names = [];
+    // var scores = [];
+    // for (i = 0; i < 3; i++) { 
+    //     names.push(numericallyOrderedScores[i].find( $('input').val() ) );
+    //     scores.push(numericallyOrderedScores[i].find( $('.score').val() ) );
+    // }
 
-   //   $('#resultBody').html(result);
-    debugger;
 
-    // var result = numericallyOrderedScores[0];
-    // $('#resultBody').html(newArray);
+    var result = numericallyOrderedScores[0];
 
-    // //var newArray = numericallyOrderedScores.clone();
-    // //var result = newArray.slice(0,1);
-    // //$('#resultBody').html(result);
+    //var name = result.find($('input')).val();
+
+
+
+
+    $('#resultBody').html(result);
+
+
     // <ol>
     // <li>Name:<span>Score:</span></li>
     // <li>Team 1 <span>34</span></li>
     // </ol>
-    
-
-  //var data =   numericallyOrderedScores[0].find($('.panel'));
- // JON's=> $(result).clone().appendTo('#resultBody');
-
-   
    
    $('.rec-score').fadeIn();
 }
@@ -313,7 +346,7 @@ function getName(){
         var val = $(this).val();
         if(val != "") {
             //adds disabled
-            $(this).prop('disabled', true);
+            $(this).prop('readonly', true);
             //adds edit button
             $(this).next().fadeIn('slow');   
         }
@@ -325,8 +358,12 @@ document.addEventListener('change', getName );
 //edits name
 $(document).on('click', '.glyphicon-pencil', function (){
    $(this).fadeOut('slow');
-   $(this).prev().prop("disabled", false).focus();
+   $(this).prev().prop("readonly", false).focus();
 });
+
+//
+
+
 
 
 

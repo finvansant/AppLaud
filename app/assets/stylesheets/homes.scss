@@ -247,6 +247,7 @@ ul.add-recording {
   li {
     text-align: left;
   }
+
 }
 //footer
 nav.results {
@@ -290,6 +291,9 @@ nav.results {
   }
   .glyphicon-remove-circle {
     color: #fff;
+  }
+  .glyphicon-pencil {
+    display: none !important;
   }
 }
 #nameModal { 
