@@ -436,6 +436,11 @@ nav.results {
     font-weight: bold;
   }
 }
+#resultsModal {
+  ul {
+    list-style-type: none;
+  }
+}
 #resultBody {
   li.box {
     width: 100% !important;

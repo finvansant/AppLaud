@@ -106,7 +106,7 @@ function validateForm(){
     setTimeout(function () {
     // and call `resolve` on the deferred object, once you're done
     r.resolve();
-  }, 5000);
+  }, 3000);
 
   // return the deferred object
   return r;
@@ -119,6 +119,7 @@ function toggleRecording( e ) {
 
     if (e.classList.contains("recording")) {
         // stop recording
+       $('#enterName').val("");
        $('#nameModal').modal('show');
        
         validateForm().done( function(){
