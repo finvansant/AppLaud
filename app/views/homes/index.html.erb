@@ -15,8 +15,9 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#" role="button" onclick="toggleResults(this);" data-toggle="modal" data-target="#helpModal">Help</a></li>
-          <li><a href="#" role="button" onclick="toggleResults(this);" data-toggle="modal" data-target="#aboutModal">About</a></li>
-
+          <li><a href="#" id="showAbout">About</a></li>
+        <!--   <li><a href="#" role="button" onclick="toggleResults(this);" data-toggle="modal" data-target="#aboutModal">About</a></li>
+ -->
 
 
 
@@ -25,6 +26,51 @@
     </div>
   </nav>
 </header>
+
+<section  id="about">
+  <div class="wrapper">
+    <ul class="team">
+        <li id="color"></li>
+        <li id="screen"></li>
+        <li id="jon" class="yo">
+          <ul>
+            <li class="hacker">Jon Tow</li>
+            <li><a target="blank" href="https://github.com/jonathantow"><i class="fa fa-github"></i></a></li>
+            <li><a target="blank" href="http://people.flatironschool.com/students/profiles/jon-tow"><i class="flatiron"></i></a></li>
+          </ul>
+        </li>
+
+        <li id="tim" class="yo">
+          <ul>
+            <li class="hacker">Tim Murray</li>
+            <li><a target="blank" href="https://github.com/tmurray002"><i class="fa fa-github"></i></a></li>
+            <li><a target="blank" href="http://people.flatironschool.com/students/profiles/tim-murray"><i class="flatiron"></i></a></li>
+          </ul>
+        </li> 
+
+         <li id="lucy" class="yo">
+          <ul>
+            <li class="hacker">Lucy Orbach</li>
+            <li><a target="blank" href="https://github.com/lucy-orbach"><i class="fa fa-github"></i></a></li>
+            <li><a target="blank" href="http://people.flatironschool.com/profiles/lucy-orbach"><i class="flatiron"></i></a></li>
+          </ul>
+        </li>
+
+        <li id="fin" class="yo">
+          <ul>
+            <li class="hacker">Findlay Parke</li>
+            <li><a target="blank" href="https://github.com/finvansant"><i class="fa fa-github"></i></a></li>
+            <li><a target="blank" href="http://people.flatironschool.com/profiles/findlay-parke"><i class="flatiron"></i></a></li>
+          </ul>
+        </li>  
+    </ul>
+    <div id="salute">
+      <h1>Hello World!</h1>
+      <h3>We are the team behind appLaud</h3>
+      <h3>Hover over us to contact</h3>
+    </div>
+  </div><!-- wrapper -->
+</section>
   
 <main class="main" id="board">
   <section class="jumbotron">
@@ -103,6 +149,7 @@
         <div><%= image_tag 'applaud.png' %></div>
       </div>
       <div id="helpBody" class="modal-body">
+        <h2>Getting Started</h2>
         <ol class="modal-numlist">
           <li>Click 'Start Recording' to begin recording your audiences' applause</li>
           <li>Once the clapping and cheering subsides, press 'Stop Recording' and enter your team name in the 'enter name' field</li>

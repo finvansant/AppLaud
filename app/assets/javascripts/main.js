@@ -157,12 +157,6 @@ function toggleRecording( e ) {
                     ).fadeIn('slow');
             });
         
-
-        
-
-        
-
-
         //hides all scores
         $('.rec-score').hide();
     } else {
@@ -361,8 +355,22 @@ $(document).on('click', '.glyphicon-pencil', function (){
    $(this).prev().prop("readonly", false).focus();
 });
 
-//
+//about section
 
+$(function() {
+$('#showAbout').click( function(){
+    $('#about').toggleClass('show');
+});
+});
+
+//about animation
+$(function(){
+    $('.yo').hover( function(){
+        var klass = $(this).attr('id');
+        $('#color').removeClass().addClass(klass);
+
+        });
+});
 
 
 
