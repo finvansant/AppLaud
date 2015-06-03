@@ -52,42 +52,11 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 
-//keypress on spacebar clicks the record button
-// $(function() {
-
-//   // $(document).keypress(function(evt) {
-//   //   if (evt.keyCode == 32) {
-//   //     $('#record').click();
-//   //   }
-//   // });
-// })
 
 function switchBtn(){
     $('#record').toggleClass('start stop');
     $('#record span').toggleClass('glyphicon-record glyphicon-stop');
 }
-
-
-// $(function() {
-
-
-//     document.addEventListener("change", function(){
-//         console.log("DVF");
-//     //document.getElementById("demo").innerHTML = "Hello World";
-//     });
-
-//   //   $('.rec-name').focus(function(event){
-//   //   console.log(event);
-//   // });
-//   // $(document).keypress(function(evt) {
-//   //   if (evt.keyCode == 32) {
-//   //     $('#record').click();
-//   //   }
-//   // });
-// })
-
-
-// // function winner(data)
 
 /// display/toggle Recording
 
@@ -119,6 +88,7 @@ function toggleRecording( e ) {
 
     if (e.classList.contains("recording")) {
         // stop recording
+
        $('#enterName').val("");
        $('#nameModal').modal('show');
        
@@ -156,8 +126,8 @@ function toggleRecording( e ) {
                     "<span class='hits'></span></li></ul></section>"+
                     "</div></li>"
                     ).fadeIn('slow');
-            });
-        
+            });       
+
         //hides all scores
         $('.rec-score').hide();
     } else {
@@ -190,32 +160,12 @@ function toggleResults( e ) {
         return $(a).find(".score").text() < $(b).find(".score").text();
     });
 
-    
-    // var names = [];
-    // var scores = [];
-    // for (i = 0; i < 3; i++) { 
-    //     names.push(numericallyOrderedScores[i].find( $('input').val() ) );
-    //     scores.push(numericallyOrderedScores[i].find( $('.score').val() ) );
-    // }
-
-
     var result = numericallyOrderedScores[0];
-
-    //var name = result.find($('input')).val();
-
-
-
-
     $('#resultBody').html(result);
 
-
-    // <ol>
-    // <li>Name:<span>Score:</span></li>
-    // <li>Team 1 <span>34</span></li>
-    // </ol>
    
    $('.rec-score').fadeIn();
-}
+} 
 
 function convertToMono( input ) {
     var splitter = audioContext.createChannelSplitter(2);
@@ -369,7 +319,6 @@ $(function(){
     $('.yo').hover( function(){
         var klass = $(this).attr('id');
         $('#color').removeClass().addClass(klass);
-
         });
 });
 

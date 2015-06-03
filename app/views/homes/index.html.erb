@@ -1,111 +1,106 @@
 
-<header>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a href="../" class="navbar-brand">
-        <%= image_tag 'applaud.png' %></a>
+  <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="../" class="navbar-brand">
+          <%= image_tag 'applaud.png' %></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" role="button" onclick="toggleResults(this);" data-toggle="modal" data-target="#helpModal">Help</a></li>
+            <li><a href="#" id="showAbout">About</a></li>
+          </ul>
+        </div>
       </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" role="button" onclick="toggleResults(this);" data-toggle="modal" data-target="#helpModal">Help</a></li>
-          <li><a href="#" id="showAbout">About</a></li>
-        <!--   <li><a href="#" role="button" onclick="toggleResults(this);" data-toggle="modal" data-target="#aboutModal">About</a></li>
- -->
+    </nav>
+  </header>
 
-
-
-        </ul>
+  <section  id="about">
+    <div class="wrapper row">
+      <div id="salute" class="col-md-4">
+        <h1>Hello World!</h1>
+        <h3>We are the team behind appLaud</h3>
+        <h3>Hover over us to contact</h3>
       </div>
-    </div>
-  </nav>
-</header>
+      <ul class="team col-md-8">
+          <li id="color"></li>
+          <li id="screen"></li>
+          <li id="jon" class="yo">
+            <ul>
+              <li class="hacker">Jon Tow</li>
+              <li><a target="blank" href="https://github.com/jonathantow"><i class="fa fa-github"></i></a></li>
+              <li><a target="blank" href="http://people.flatironschool.com/students/profiles/jon-tow"><i class="flatiron"></i></a></li>
+            </ul>
+          </li>
 
-<section  id="about">
-  <div class="wrapper">
-    <ul class="team">
-        <li id="color"></li>
-        <li id="screen"></li>
-        <li id="jon" class="yo">
-          <ul>
-            <li class="hacker">Jon Tow</li>
-            <li><a target="blank" href="https://github.com/jonathantow"><i class="fa fa-github"></i></a></li>
-            <li><a target="blank" href="http://people.flatironschool.com/students/profiles/jon-tow"><i class="flatiron"></i></a></li>
-          </ul>
-        </li>
+          <li id="tim" class="yo">
+            <ul>
+              <li class="hacker">Tim Murray</li>
+              <li><a target="blank" href="https://github.com/tmurray002"><i class="fa fa-github"></i></a></li>
+              <li><a target="blank" href="http://people.flatironschool.com/students/profiles/tim-murray"><i class="flatiron"></i></a></li>
+            </ul>
+          </li> 
 
-        <li id="tim" class="yo">
-          <ul>
-            <li class="hacker">Tim Murray</li>
-            <li><a target="blank" href="https://github.com/tmurray002"><i class="fa fa-github"></i></a></li>
-            <li><a target="blank" href="http://people.flatironschool.com/students/profiles/tim-murray"><i class="flatiron"></i></a></li>
-          </ul>
-        </li> 
+           <li id="lucy" class="yo">
+            <ul>
+              <li class="hacker">Lucy Orbach</li>
+              <li><a target="blank" href="https://github.com/lucy-orbach"><i class="fa fa-github"></i></a></li>
+              <li><a target="blank" href="http://people.flatironschool.com/profiles/lucy-orbach"><i class="flatiron"></i></a></li>
+            </ul>
+          </li>
 
-         <li id="lucy" class="yo">
-          <ul>
-            <li class="hacker">Lucy Orbach</li>
-            <li><a target="blank" href="https://github.com/lucy-orbach"><i class="fa fa-github"></i></a></li>
-            <li><a target="blank" href="http://people.flatironschool.com/profiles/lucy-orbach"><i class="flatiron"></i></a></li>
-          </ul>
-        </li>
-
-        <li id="fin" class="yo">
-          <ul>
-            <li class="hacker">Findlay Parke</li>
-            <li><a target="blank" href="https://github.com/finvansant"><i class="fa fa-github"></i></a></li>
-            <li><a target="blank" href="http://people.flatironschool.com/profiles/findlay-parke"><i class="flatiron"></i></a></li>
-          </ul>
-        </li>  
-    </ul>
-    <div id="salute">
-      <h1>Hello World!</h1>
-      <h3>We are the team behind appLaud</h3>
-      <h3>Hover over us to contact</h3>
-    </div>
-  </div><!-- wrapper -->
-</section>
+          <li id="fin" class="yo">
+            <ul>
+              <li class="hacker">Findlay Parke</li>
+              <li><a target="blank" href="https://github.com/finvansant"><i class="fa fa-github"></i></a></li>
+              <li><a target="blank" href="http://people.flatironschool.com/profiles/findlay-parke"><i class="flatiron"></i></a></li>
+            </ul>
+          </li>  
+      </ul>
+      
+    </div><!-- wrapper -->
+  </section>
   
-<main class="main" id="board">
-  <section class="jumbotron">
-      <div id="viz">
-        <canvas id="display" width="1024" height="250"></canvas>
-      </div>
-      <button id="record" class="btn h2 start" onclick="toggleRecording(this);">Recording<span class="glyphicon glyphicon-record" aria-hidden="true"></span></button>
-      <!-- <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> -->
-      <!-- <div id="controls">
-        <img id="record" src="assets/player_record.png" onclick="toggleRecording(this);">
-      </div> -->
-  </section>
+  <main class="main" id="board">
+    <section class="jumbotron">
+        <div id="viz">
+          <canvas id="display" width="1024" height="250"></canvas>
+        </div>
+        <button id="record" class="btn h2 start" onclick="toggleRecording(this);">Recording<span class="glyphicon glyphicon-record" aria-hidden="true"></span></button>
+        <!-- <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> -->
+        <!-- <div id="controls">
+          <img id="record" src="assets/player_record.png" onclick="toggleRecording(this);">
+        </div> -->
+    </section>
 
-  <section id="intro">
-    <h1>Hit the Button to Start Recording</h1>
-    <h1>Click on Show Results when Session is Finished</h1>
-  </section>
+    <section id="intro">
+      <h1>Hit the Button to Start Recording</h1>
+      <h1>Click on Show Results when Session is Finished</h1>
+    </section>
      
-
     <section class="rec-container">
       <div id="viz2">
         <div id="parent container">
-            <!-- <canvas id="recording" width="1024" height="400" class="rec-display"></canvas> -->
-              <ul class="add-recording row">
-                
-                </ul>
-            </div>
-          
+          <!-- <canvas id="recording" width="1024" height="400" class="rec-display"></canvas> -->
+          <ul class="add-recording row">
+              
+          </ul>
+        </div>   
       </div>
     </section>
-</main>
 
-<nav class="results">
-  <button type="button" class="btn h1" onclick="toggleResults(this);" data-toggle="modal" data-target="#resultsModal">Show Results<span class="glyphicon glyphicon-stats" aria-hidden="true"></span></button>
-</nav>
+  </main>
+
+  <nav class="results">
+    <button type="button" class="btn h1" onclick="toggleResults(this);" data-toggle="modal" data-target="#resultsModal">Show Results<span class="glyphicon glyphicon-stats" aria-hidden="true"></span></button>
+  </nav>
 <!-- **** MODALS **** -->
 <div id ="resultsModal" class="modal fade">
   <div class="modal-dialog">
@@ -161,47 +156,7 @@
 </div><!--  help modal --> 
         
     
-<div id ="aboutModal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <div><%= image_tag 'applaud.png' %></div>
-      </div>
-      <div id="aboutBody" class="modal-body">
-        <ul>
-          <li>Findlay Parke
-            <ul>
-              <li><a href="https://github.com/finvansant"><i class="fa fa-github-alt"></i></a></li>
-              <li><a href="http://people.flatironschool.com/profiles/findlay-parke"><icon class="flatiron"></a></li>
-            </ul>
-          </li>
 
-          <li>Jon Tow
-            <ul style="list-style-type:disc">
-              <li><a href="https://github.com/jonathantow"><i class="fa fa-github-alt"></i></a></li>
-              <li><a href="http://people.flatironschool.com/students/profiles/jon-tow"><icon class="flatiron"></a></li>
-            </ul>
-          </li>
-
-          <li>Lucy Orbach
-            <ul style="list-style-type:disc">
-              <li><a href="https://github.com/lucy-orbach"><i class="fa fa-github-alt"></i></a></li>
-              <li><a href="http://people.flatironschool.com/profiles/lucy-orbach"><icon class="flatiron"></a></li>
-            </ul>
-          </li>
-
-          <li>Tim Murray
-            <ul style="list-style-type:disc">
-              <li><a href="https://github.com/tmurray002"><i class="fa fa-github-alt"></i></a></li>
-              <li><a href="http://people.flatironschool.com/students/profiles/tim-murray"><icon class="flatiron"></a></li>
-            </ul>
-          </li> 
-        </ul>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- about modal -->  
         
     
       
