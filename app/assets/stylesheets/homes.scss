@@ -163,9 +163,10 @@ header {
 .team {
     position: relative;
     z-index: 910;
-    // width: 900px;
+    width: 975px;
     height: 80vh;
-    padding-left: 30px;
+    float: right;
+   // padding-left: 30px;
     background-color: #000;
     background-image: image-url("team-bw.jpg");
     background-size: 100%;
