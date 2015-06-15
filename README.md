@@ -7,11 +7,11 @@ AppLaud gives you the means to rank audience feedback for any group presentation
 
 ## Dependencies/Contribution
 
-Matt Diamond's Recorder.js
-W3C's Web Audio API
-HTML5
-Bootstrap
-jQuery
+* Matt Diamond's Recorder.js
+* W3C's Web Audio API
+* HTML5
+* Bootstrap
+* jQuery
 
 
 ## Author
